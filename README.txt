@@ -1,0 +1,1 @@
+This is a web app for a dictionary using an API.
