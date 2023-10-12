@@ -1,64 +1,17 @@
 body{
-    font-family: serif;
+    font-family: sans-serif;
+    margin: 0;
 }
 
 
-/*This is the navbar content*/
+/*This is where i work on navbar*/
 .navbar-container{
     display: flex;
-    flex-direction: row;
+    padding: 1rem;
     justify-content: space-between;
-    padding: 1rem 2rem;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     align-items: center;
-    position: sticky;
-    top: 0;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
 
-.navbar-items-one{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 2rem;
-    align-items: center;
-}
+/*-------------------------*/
 
-.tooggle-button{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.navbar-mobile{
-    display: none;
-}
-
-
-/*-----------------------------*/
-
-/*This is navbar style for dropdown*/
-
-#dropdown-menu{
- border: none;
-}
-
-/*-----------------------------*/
-
-/*This is navbar style for mobile*/
-
-@media only screen and (max-width: 500px){
-    .navbar-mobile{
-        display: flex;
-    }
-    .navbar-items{
-        display: none;
-    }
-    .navbar-items-one{
-        display: none;
-    }
-    .navbar-container{
-        padding: 1rem;
-    }
-}
-
-/*-----------------------------*/
