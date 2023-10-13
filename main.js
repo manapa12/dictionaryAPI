@@ -2,8 +2,11 @@ let lupa = document.getElementById("search-button");
 let searchBar = document.getElementById("word-search");
 let mySwitch = document.getElementById("flexSwitchCheckChecked")
 const myContent = document.getElementById("main-content-container");
+const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 
+let mainWord = document.getElementById("main-word");
+let pronunce = document.getElementById("pronunce")
 
 /**This function makes the search bar appear */
 lupa.addEventListener("click", ()=> {
@@ -36,3 +39,58 @@ mySwitch.addEventListener("click", function(){
         document.body.style.color = "black";
     }
 })
+
+/**This function registers when the user presses enter */
+
+searchBar.addEventListener("keydown", function(event){
+    if(event.key ==="Enter"){
+        getData(searchBar.value)
+    }
+})
+
+async function getData(word){
+    try{
+    let response = await fetch(url + word);
+    if(response.ok){
+        let wordInfo = await response.json();
+        console.log(wordInfo)
+        mainWord.innerHTML = wordInfo["0"].word;
+        pronunce.innerHTML = wordInfo["0"].phonetic;
+        
+        console.log(wordInfo["0"].word)
+    }else{
+        throw new Error("No Connection")
+    }
+    }catch(Error){
+        console.log("Error: " + Error);
+    }
+}
+
+
+const randomWords = [
+    'apple',
+    'banana',
+    'chocolate',
+    'dog',
+    'elephant',
+    'flower',
+    'guitar',
+    'happiness',
+    'island',
+    'jazz',
+    'kangaroo',
+    'lemon',
+    'mountain',
+    'noodle',
+    'ocean',
+    'penguin',
+    'queen',
+    'rainbow',
+    'sunny',
+    'tiger',
+    'umbrella',
+    'volcano',
+    'waterfall',
+    'xylophone',
+    'zebra'
+  ];
