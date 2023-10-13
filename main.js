@@ -6,7 +6,9 @@ const url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
 
 let mainWord = document.getElementById("main-word");
-let pronunce = document.getElementById("pronunce")
+let pronunce = document.getElementById("pronunce");
+let typeOfWord = document.getElementById("type-of-word");
+let listOfMeanings = document.getElementById("meanings-list");
 
 /**This function makes the search bar appear */
 lupa.addEventListener("click", ()=> {
@@ -44,10 +46,12 @@ mySwitch.addEventListener("click", function(){
 
 searchBar.addEventListener("keydown", function(event){
     if(event.key ==="Enter"){
-        getData(searchBar.value)
+        getData(searchBar.value);
     }
 })
 
+
+/**This function retrives the data from the API  */
 async function getData(word){
     try{
     let response = await fetch(url + word);
@@ -56,8 +60,18 @@ async function getData(word){
         console.log(wordInfo)
         mainWord.innerHTML = wordInfo["0"].word;
         pronunce.innerHTML = wordInfo["0"].phonetic;
+        typeOfWord.innerHTML = wordInfo["0"].meanings["0"].partOfSpeech;
+        let firstPartOfSpeech = wordInfo[0].meanings[0];
+        let definition = firstPartOfSpeech.definitions[0].definition;
+        wordInfo[0].meanings.forEach(function(meaning){
+            let num = 0;
+            let meaningItem = document.createElement("li");
+            meaningItem.innerHTML = firstPartOfSpeech.definitions[num].definition;
+            num++;
+            listOfMeanings.appendChild(meaningItem);
+        }
+        )
         
-        console.log(wordInfo["0"].word)
     }else{
         throw new Error("No Connection")
     }
@@ -65,6 +79,15 @@ async function getData(word){
         console.log("Error: " + Error);
     }
 }
+
+//*This removes the childs of the meaning*//
+function removeAllChildElements() {
+    let ulElement = document.querySelector('.listOfMeanings');
+    while (ulElement.firstChild) {
+        ulElement.removeChild(ulElement.firstChild);
+    }
+}
+
 
 
 const randomWords = [
