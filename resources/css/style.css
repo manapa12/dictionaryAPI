@@ -1,6 +1,7 @@
 body{
     font-family: sans-serif;
     margin: 0;
+    width:100%;
 }
 
 
@@ -11,7 +12,61 @@ body{
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#word-search{
+    display: none;
+    padding: 0.5rem;
+    width:400px;
+    margin: 0 1rem
+}
+
+.form-check-label{
+    display: none;
+}
+
+#lupa{
+    position: relative;
+    left:25% ;
 }
 
 /*-------------------------*/
 
+
+/*This is the responive navbar section*/
+
+@media only screen and (min-width: 615px) {
+    #word-search{
+        display: inline-block;
+    }
+    #search-button{
+        display: none;
+    }
+    .form-check-input{
+        display: inline-block;
+    }
+    
+    .form-check-label{
+        display: inline-block;
+    }
+
+}
+
+@media only screen and (max-width: 400px){
+    #lupa{
+        position: relative;
+        left:20% ;
+    }
+    
+}
+
+@media only screen and (max-width: 260px){
+    #lupa{
+        position: relative;
+        left:10% ;
+    }
+    
+}
+/*------------------------*/
