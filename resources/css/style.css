@@ -2,7 +2,10 @@ body{
     font-family: sans-serif;
     margin: 0;
     width:100%;
+    color: black;
+    background-color: aliceblue;
 }
+
 
 
 /*This is where i work on navbar*/
@@ -29,8 +32,24 @@ body{
 
 #lupa{
     position: relative;
-    left:25% ;
+    left:23% ;
 }
+
+
+#search-button:hover{
+    cursor: pointer;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.hidden{
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s, display 0s 0.3s;
+}
+
 
 /*-------------------------*/
 
@@ -70,3 +89,73 @@ body{
     
 }
 /*------------------------*/
+
+
+/*THis is the main content*/
+
+
+/*THis is the word area*/
+#main-content-container{
+    padding: 1.5rem 1rem;
+    margin: auto;
+}
+
+#main-word{
+    font-weight: 800;
+    font-size: 3rem;
+    margin-bottom: 0;
+    
+}
+
+#pronunce{
+    color: blueviolet;
+    margin-top: 0;
+    
+}
+
+#type-of-word{
+    font-style: italic;
+    margin-top: 3rem;
+    
+}
+/*------------------------*/
+
+
+/*This is the meaning section*/
+
+.meaning-container h2{
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+#list-of-meaning{
+    margin-top: 1rem;
+    list-style: circle;
+}
+
+#list-of-meaning li{
+    margin-top: 1rem;
+}
+/*-------------------*/
+
+
+/*This is the synonym section*/
+
+
+.synonym-container h2{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.synonym-container p{
+    display: inline-block;
+    color: blueviolet;
+}
+
+/*------------------------*/
+
+
+/*------------------------*/
+
